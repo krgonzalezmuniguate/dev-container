@@ -1,0 +1,19 @@
+
+FROM httpd:2.4.57-bullseye
+
+# Habilitar los módulos necesarios y configurar el host virtual
+RUN rm /etc/apt/sources.list \
+    && touch /etc/apt/sources.list \
+    && echo 'deb https://deb.debian.org/debian bullseye main' >> /etc/apt/sources.list \
+    && echo 'deb https://deb.debian.org/debian-security bullseye-security main' >> /etc/apt/sources.list \
+    && echo 'deb https://deb.debian.org/debian bullseye-updates main' >> /etc/apt/sources.list \
+    && apt-get update \
+    && apt-get install -y libapache2-mod-fcgid \
+    && echo "LoadModule proxy_module modules/mod_proxy.so" >> /usr/local/apache2/conf/httpd.conf \
+    && echo "LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so" >> /usr/local/apache2/conf/httpd.conf \
+    && echo "Include /usr/local/apache2/conf/extra/httpd-fpm.conf" >> /usr/local/apache2/conf/httpd.conf
+
+# Copiar la configuración de Apache
+
+COPY ./.configuration/httpd/httpd-fpm.conf /usr/local/apache2/conf/extra/
+COPY ./.configuration/httpd/httpd.conf /usr/local/apache2/conf/

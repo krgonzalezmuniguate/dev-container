@@ -1,0 +1,102 @@
+FROM php:8.3.10-fpm-bullseye
+
+WORKDIR /var/www/html
+
+ARG NODE_VERSION=v20.16.0
+ENV PATH=/opt/node-${NODE_VERSION}-linux-x64/bin:${PATH} \
+    LD_LIBRARY_PATH=/opt/oracle/instantclient_21_8 \
+    SAPNWRFC_HOME=/usr/sap/nwrfcsdk
+
+# Configurar repositorios y instalar dependencias
+RUN rm /etc/apt/sources.list && \
+    echo 'deb https://deb.debian.org/debian bullseye main' > /etc/apt/sources.list && \
+    echo 'deb https://deb.debian.org/debian-security bullseye-security main' >> /etc/apt/sources.list && \
+    echo 'deb https://deb.debian.org/debian bullseye-updates main' >> /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
+        git \
+        python3 \
+        libxml2-dev \
+        libssl-dev \
+        libgd-dev \
+        libzip-dev \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libpng-dev \
+        libjpeg-dev \
+        libicu-dev \
+        build-essential \
+        libaio1 \
+        libaio-dev \
+        unzip \
+        curl && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Instalar Xdebug
+RUN git clone https://github.com/xdebug/xdebug.git /tmp/xdebug && \
+    cd /tmp/xdebug && \
+    git checkout xdebug_3_3 && \
+    phpize && \
+    ./configure --enable-xdebug && \
+    make -j$(nproc) && \
+    make install && \
+    rm -rf /tmp/xdebug
+
+# Instalar Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Instalar Node.js
+RUN cd /opt && \
+    curl -LO https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.xz && \
+    tar xJf node-${NODE_VERSION}-linux-x64.tar.xz && \
+    rm node-${NODE_VERSION}-linux-x64.tar.xz && \
+    npm install -g gulp-cli sass
+
+# Descargar y configurar Oracle Instant Client
+RUN mkdir -p /opt/oracle && \
+    cd /tmp && \
+    curl -L -o instantclient-basic.zip https://download.oracle.com/otn_software/linux/instantclient/218000/instantclient-basic-linux.x64-21.8.0.0.0dbru.zip && \
+    curl -L -o instantclient-sdk.zip https://download.oracle.com/otn_software/linux/instantclient/218000/instantclient-sdk-linux.x64-21.8.0.0.0dbru.zip && \
+    curl -L -o nwrfc.zip https://github.com/j-atrujillo/nwrfc/raw/main/nwrfc750P_9-70002752.zip && \
+    unzip instantclient-basic.zip -d /opt/oracle && \
+    unzip instantclient-sdk.zip -d /opt/oracle && \
+    unzip nwrfc.zip -d /usr/sap && \
+    rm -f /tmp/*.zip
+
+# Configurar enlaces y librerías Oracle
+RUN ln -sf /opt/oracle/instantclient_21_8/libclntsh.so.12.1 /opt/oracle/instantclient_21_8/libclntsh.so && \
+    ln -sf /opt/oracle/instantclient_21_8/libocci.so.12.1 /opt/oracle/instantclient_21_8/libocci.so && \
+    echo /opt/oracle/instantclient_21_8 > /etc/ld.so.conf.d/oracle-instantclient && \
+    ldconfig
+
+# Instalar OCI8
+RUN echo 'instantclient,/opt/oracle/instantclient_21_8' | pecl install oci8 && \
+    pecl channel-update pecl.php.net
+
+# Configurar SAP NW RFC
+RUN echo "/usr/sap/nwrfcsdk/lib" > /etc/ld.so.conf.d/nwrfcsdk.conf && \
+    ldconfig && \
+    cd /tmp && \
+    curl -L -o sapnwrfc.zip https://github.com/gkralik/php7-sapnwrfc/archive/refs/tags/2.1.0.zip && \
+    unzip sapnwrfc.zip && \
+    cd php7-sapnwrfc-2.1.0 && \
+    phpize && \
+    ./configure && \
+    make -j$(nproc) && \
+    make install && \
+    rm -rf /tmp/php7-sapnwrfc-2.1.0 /tmp/sapnwrfc.zip
+
+# Configurar extensiones PHP
+RUN docker-php-ext-configure gd --with-jpeg && \
+    docker-php-ext-install -j$(nproc) gd zip && \
+    docker-php-ext-enable oci8 sapnwrfc
+
+# Configuración de Xdebug y PHP
+COPY ./.configuration/php/xdebug.ini /usr/local/etc/php/conf.d/
+COPY ./.configuration/php/php.ini /usr/local/etc/php/
+
+# Limpiar archivos temporales
+RUN rm -rf /tmp/* /var/tmp/*
+
+EXPOSE 9000

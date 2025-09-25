@@ -1,0 +1,41 @@
+services:
+  apache:
+    image: ${DOCKER_IMAGE_APACHE}
+    build:
+      context: ../../
+      dockerfile: .docker/images/${DOCKERFILE_APACHE}
+    container_name: ${DOCKER_CONTAINER_APACHE}
+    volumes:
+      - ./../../:/usr/local/apache2/htdocs # archivos de aplicación
+      - ./../../logs/httpd:/var/log/apache2 # logs de aplicación
+    networks:
+      docker-network:
+        ipv4_address: ${DOCKER_IP_APACHE}
+    depends_on:
+      - php
+    restart: always
+  php:
+    image: ${DOCKER_IMAGE_PHP_FPM}
+    build:
+      context: ../../
+      dockerfile: .docker/images/${DOCKERFILE_PHP_FPM}
+    container_name: ${DOCKER_CONTAINER_PHP}
+    volumes:
+      - ./../../:/var/www/html # archivos de aplicación
+      - ./../../logs/php:/var/log/ #logs de aplicación
+    networks:
+      docker-network:
+        ipv4_address: ${DOCKER_IP_PHP}
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+networks:
+  docker-network:
+#    external: true
+    name: ${DOCKER_NETWORK}
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "${DOCKER_NETWORK_SUBNET}"
+          gateway: "${DOCKER_NETWORK_GATEWAY}"
