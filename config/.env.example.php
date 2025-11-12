@@ -4,10 +4,10 @@ use SAPNWRFC\Exception as SapException;
 
 return (object)[
     'db' => [
-        'host' => 'xxx.xx.xx.xxx',
+        'host' => '172.23.50.95',
         'port' => 1521,
-        'user' => 'user',
-        'pass' => 'passw',
+        'user' => 'rrhh',
+        'pass' => 'rrhhadmin',
         'charset' => 'UTF8',
         'service_name' => 'service_name'
     ],
