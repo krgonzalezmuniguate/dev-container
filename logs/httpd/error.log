@@ -1,0 +1,8 @@
+[Fri Nov 14 19:59:47.263320 2025] [proxy_fcgi:error] [pid 10:tid 139890232518400] (70007)The timeout specified has expired: [client 161.1.0.1:55502] AH01075: Error dispatching request to : (polling), referer: http://161.1.0.3/dai/login
+[Fri Nov 14 20:00:57.690436 2025] [proxy_fcgi:error] [pid 92:tid 139890232518400] (70007)The timeout specified has expired: [client 161.1.0.1:35956] AH01075: Error dispatching request to : (polling), referer: http://161.1.0.3/dai/login
+[Fri Nov 14 20:02:38.571448 2025] [proxy_fcgi:error] [pid 9:tid 139890215732992] (70007)The timeout specified has expired: [client 161.1.0.1:55706] AH01075: Error dispatching request to : (polling), referer: http://161.1.0.3/dai/login
+[Fri Nov 14 20:05:19.411493 2025] [proxy_fcgi:error] [pid 10:tid 140536430196480] [client 161.1.0.1:43376] AH01067: Failed to read FastCGI header
+[Fri Nov 14 20:05:19.411567 2025] [proxy_fcgi:error] [pid 10:tid 140536430196480] (104)Connection reset by peer: [client 161.1.0.1:43376] AH01075: Error dispatching request to : 
+[Fri Nov 14 20:09:03.127206 2025] [core:error] [pid 10:tid 140157600659200] [client 161.1.0.1:59416] AH00037: Symbolic link not allowed or link target not accessible: /usr/local/apache2/htdocs/auditoria/public/storage, referer: http://161.1.0.3/dai/home
+[Fri Nov 14 20:09:15.425983 2025] [core:error] [pid 92:tid 140156728243968] [client 161.1.0.1:60348] AH00037: Symbolic link not allowed or link target not accessible: /usr/local/apache2/htdocs/auditoria/public/storage
+[Fri Nov 14 20:09:31.442024 2025] [core:error] [pid 92:tid 140157701306112] [client 161.1.0.1:52144] AH00037: Symbolic link not allowed or link target not accessible: /usr/local/apache2/htdocs/auditoria/public/storage

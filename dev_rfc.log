@@ -1,0 +1,28 @@
+
+**** Log file opened at 2025-11-14 17:29:43.178428 UTC+00:00 (GMT), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 9, Compiled on Dec 13 2021 19:35:05
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 915
+ Current working directory: /var/www/html, Program: php-fpm
+ Hardware: AMD/Intel x86_64 with Linux x86_64, Operating_system: Linux 6.14.5-100.fc40.x86_64
+ Hostname: bee1bc65bc7a, IP address: 161.1.0.4, IPv6 address: 
+
+2025-11-14 17:29:43.178720 [140705597397376] >> Error entry
+	The UUID daemon (uuidd) is not active.
+Please ask your system administrator to activate uuidd according to SAP note 1391070.
+
+2025-11-14 17:29:43.178779 [140705597397376] >> Info entry
+	Did not find config file /var/www/html/sapnwrfc.ini.
+
+**** Log file opened at 2025-11-14 20:08:04.356435 UTC+00:00 (GMT), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 9, Compiled on Dec 13 2021 19:35:05
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 915
+ Current working directory: /var/www/html, Program: php-fpm
+ Hardware: AMD/Intel x86_64 with Linux x86_64, Operating_system: Linux 6.14.5-100.fc40.x86_64
+ Hostname: bee1bc65bc7a, IP address: 161.1.0.4, IPv6 address: 
+
+2025-11-14 20:08:04.356705 [140016787392896] >> Error entry
+	The UUID daemon (uuidd) is not active.
+Please ask your system administrator to activate uuidd according to SAP note 1391070.
+
+2025-11-14 20:08:04.356727 [140016787392896] >> Info entry
+	Did not find config file /var/www/html/sapnwrfc.ini.

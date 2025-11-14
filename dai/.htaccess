@@ -1,0 +1,19 @@
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /dai/
+  
+  # Si se pide el index.html exacto, se sirve y se detiene el procesamiento
+  RewriteRule ^index\.html$ - [L] 
+  
+  # Si el usuario solo pide /dai/, redirige a /dai/index.html
+  RewriteRule ^$ index.html [L] 
+
+  # Si no es un archivo ni un directorio existente (una ruta de Vue), 
+  # redirige a index.html para que Vue Router lo maneje.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /dai/index.html [L]
+</IfModule>
