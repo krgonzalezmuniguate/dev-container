@@ -26,3 +26,111 @@ Please ask your system administrator to activate uuidd according to SAP note 139
 
 2025-11-14 20:08:04.356727 [140016787392896] >> Info entry
 	Did not find config file /var/www/html/sapnwrfc.ini.
+
+**** Log file opened at 2025-11-17 14:25:36.433875 UTC+00:00 (GMT), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 9, Compiled on Dec 13 2021 19:35:05
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 915
+ Current working directory: /var/www/html, Program: php-fpm
+ Hardware: AMD/Intel x86_64 with Linux x86_64, Operating_system: Linux 6.14.5-100.fc40.x86_64
+ Hostname: 6db94a1c03a3, IP address: 161.1.0.4, IPv6 address: 
+
+2025-11-17 14:25:36.434469 [140149576157568] >> Error entry
+	The UUID daemon (uuidd) is not active.
+Please ask your system administrator to activate uuidd according to SAP note 1391070.
+
+2025-11-17 14:25:36.434552 [140149576157568] >> Info entry
+	Did not find config file /var/www/html/sapnwrfc.ini.
+2025-11-17 14:26:38.046481 [140149576157568] >> Error entry
+	[Handle: 94040826491488	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       timeout occured
+TIME        Mon Nov 17 14:26:37 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -5
+MODULE      /bas/753_REL/src/krn/si/gw/gwxx.c
+LINE        1179
+DETAIL      timeout 60000 msecs
+SYSTEM CALL GwRead
+COUNTER     6
+
+
+**** Log file opened at 2025-11-17 14:28:40.041083 UTC+00:00 (GMT), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 9, Compiled on Dec 13 2021 19:35:05
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 915
+ Current working directory: /var/www/html, Program: php-fpm
+ Hardware: AMD/Intel x86_64 with Linux x86_64, Operating_system: Linux 6.14.5-100.fc40.x86_64
+ Hostname: 6db94a1c03a3, IP address: 161.1.0.4, IPv6 address: 
+
+2025-11-17 14:28:40.041318 [140149576157568] >> Error entry
+	The UUID daemon (uuidd) is not active.
+Please ask your system administrator to activate uuidd according to SAP note 1391070.
+
+2025-11-17 14:28:40.041422 [140149576157568] >> Info entry
+	Did not find config file /var/www/html/sapnwrfc.ini.
+2025-11-17 14:29:40.106590 [140149576157568] >> Error entry
+	[Handle: 94040826904176	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host 6db94a1c03a3 with Unicode
+ERROR       partner '172.23.50.45:3300' not reached
+TIME        Mon Nov 17 14:29:40 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      /bas/753_REL/src/base/ni/nibuf.cpp
+LINE        4580
+DETAIL      NiBufIConnect: connection pending after 60000ms
+SYSTEM CALL connect
+ERRNO       115
+ERRNO TEXT  Operation now in progress
+COUNTER     4
+
+2025-11-17 14:30:40.152232 [140149576157568] >> Error entry
+	[Handle: 94040826904176	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '172.23.50.45:3300' not reached
+TIME        Mon Nov 17 14:30:40 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      /bas/753_REL/src/base/ni/nibuf.cpp
+LINE        4580
+DETAIL      NiBufIConnect: connection pending after 60000ms
+SYSTEM CALL connect
+ERRNO       115
+ERRNO TEXT  Operation now in progress
+COUNTER     6
+
+
+**** Log file opened at 2025-11-17 15:15:33.363931 UTC+00:00 (GMT), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 9, Compiled on Dec 13 2021 19:35:05
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 915
+ Current working directory: /var/www/html, Program: php-fpm
+ Hardware: AMD/Intel x86_64 with Linux x86_64, Operating_system: Linux 6.14.5-100.fc40.x86_64
+ Hostname: 6db94a1c03a3, IP address: 161.1.0.4, IPv6 address: 
+
+2025-11-17 15:15:33.364939 [140213131286912] >> Error entry
+	The UUID daemon (uuidd) is not active.
+Please ask your system administrator to activate uuidd according to SAP note 1391070.
+
+2025-11-17 15:15:33.365004 [140213131286912] >> Info entry
+	Did not find config file /var/www/html/sapnwrfc.ini.
+
+**** Log file opened at 2025-11-17 15:20:11.986257 UTC+00:00 (GMT), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 9, Compiled on Dec 13 2021 19:35:05
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 915
+ Current working directory: /var/www/html, Program: php-fpm
+ Hardware: AMD/Intel x86_64 with Linux x86_64, Operating_system: Linux 6.14.5-100.fc40.x86_64
+ Hostname: 6db94a1c03a3, IP address: 161.1.0.4, IPv6 address: 
+
+2025-11-17 15:20:11.986823 [140200314554752] >> Error entry
+	The UUID daemon (uuidd) is not active.
+Please ask your system administrator to activate uuidd according to SAP note 1391070.
+
+2025-11-17 15:20:11.986854 [140200314554752] >> Info entry
+	Did not find config file /var/www/html/sapnwrfc.ini.

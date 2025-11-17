@@ -1,0 +1,200 @@
+
+**** Trace file opened at 2025-11-17 14:28:40.077071 UTC+00:00 (GMT), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 9, Compiled on Dec 13 2021 19:35:05
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 915
+ Current working directory: /var/www/html, Program: php-fpm
+ Hardware: AMD/Intel x86_64 with Linux x86_64, Operating_system: Linux 6.14.5-100.fc40.x86_64
+ Hostname: 6db94a1c03a3, IP address: 161.1.0.4, IPv6 address: 
+
+>> Passed parameters
+	ASHOST: 172.23.50.45
+	CLIENT: 500
+	PASSWD: (- secret -)
+	SYSNR: 00
+	TRACE: 4
+	USER: krgonzalez
+<< Passed parameters
+
+2025-11-17 14:28:40.077152 [140149576157568] >> RfcOpenConnection
+>> RfcOptions
+	Partner Char Size: 1
+	Client: 500
+	User: krgonzalez
+	Alias: 
+	Passwd: (- secret -)
+	Language: 
+	SysNr: 00
+	ASHost: 172.23.50.45
+	ASService: 
+	GWHost: 
+	GWService: 
+	R3Name: 
+	MSHost: 
+	MSService: 
+	TLS Cryptolib: 
+	TLS Trust All: Off
+	Codepage: 1100
+	Trace: 4
+	LogonCheck: 1
+	CompressionType: 1
+	Serialization: 0
+	Ignore Char Conv Errors: 0
+	Substitution Char: 35
+	UseRoundtripOptimization: 0
+	SO Keepalive: 0
+	CPIC Keepalive: 0
+	Delta Manager: 1
+<< RfcOptions
+
+2025-11-17 14:28:40.077181 [140149576157568] 	>> RfcOptions::determineType
+determined type RFC_CLIENT
+2025-11-17 14:28:40.077219 [140149576157568] 	<< RfcOptions::determineType returned 0
+
+2025-11-17 14:28:40.077235 [140149576157568] 	>> RfcConnection::openNew
+2025-11-17 14:28:40.077471 [140149576157568] 	>> RfcConnection::connect
+2025-11-17 14:28:40.077508 [140149576157568] 	>> CpicConnection::connectAsClient
+2025-11-17 14:29:40.106390 [140149576157568] 	<< CpicConnection::connectAsClient returned 1
+
+2025-11-17 14:29:40.106513 [140149576157568] 	<< RfcConnection::connect returned 1
+
+2025-11-17 14:29:40.106634 [140149576157568] >> Exception occurred
+	[Handle: 94040826904176	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host 6db94a1c03a3 with Unicode
+ERROR       partner '172.23.50.45:3300' not reached
+TIME        Mon Nov 17 14:29:40 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      /bas/753_REL/src/base/ni/nibuf.cpp
+LINE        4580
+DETAIL      NiBufIConnect: connection pending after 60000ms
+SYSTEM CALL connect
+ERRNO       115
+ERRNO TEXT  Operation now in progress
+COUNTER     4
+
+2025-11-17 14:29:40.106645 [140149576157568] 	<< RfcConnection::openNew returned 1
+
+2025-11-17 14:29:40.106659 [140149576157568] 	>> RfcConnection::disconnect
+2025-11-17 14:29:40.106671 [140149576157568] 	>> CpicConnection::close
+2025-11-17 14:29:40.106681 [140149576157568] 	<< CpicConnection::close returned 0
+
+2025-11-17 14:29:40.106692 [140149576157568] 	<< RfcConnection::disconnect returned 0
+
+2025-11-17 14:29:40.106732 [140149576157568] << RfcOpenConnection returned RFC_COMMUNICATION_FAILURE
+	RFC_ERROR_INFO.key: RFC_COMMUNICATION_FAILURE
+	RFC_ERROR_INFO.message: 
+LOCATION    CPIC (TCP/IP) on local host 6db94a1c03a3 with Unicode
+ERROR       partner '172.23.50.45:3300' not reached
+TIME        Mon Nov 17 14:29:40 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      /bas/753_REL/src/base/ni/nibuf.cpp
+LINE        4580
+DETAIL      NiBufIConnect: connection pending after 60000ms
+SYSTEM CALL connect
+ERRNO       115
+ERRNO TEXT  Operation now in progress
+COUNTER     4
+
+
+>> Passed parameters
+	ASHOST: 172.23.50.45
+	CLIENT: 500
+	PASSWD: (- secret -)
+	SYSNR: 00
+	TRACE: 4
+	USER: krgonzalez
+<< Passed parameters
+
+2025-11-17 14:29:40.107210 [140149576157568] >> RfcOpenConnection
+>> RfcOptions
+	Partner Char Size: 1
+	Client: 500
+	User: krgonzalez
+	Alias: 
+	Passwd: (- secret -)
+	Language: 
+	SysNr: 00
+	ASHost: 172.23.50.45
+	ASService: 
+	GWHost: 
+	GWService: 
+	R3Name: 
+	MSHost: 
+	MSService: 
+	TLS Cryptolib: 
+	TLS Trust All: Off
+	Codepage: 1100
+	Trace: 4
+	LogonCheck: 1
+	CompressionType: 1
+	Serialization: 0
+	Ignore Char Conv Errors: 0
+	Substitution Char: 35
+	UseRoundtripOptimization: 0
+	SO Keepalive: 0
+	CPIC Keepalive: 0
+	Delta Manager: 1
+<< RfcOptions
+
+2025-11-17 14:29:40.107260 [140149576157568] 	>> RfcOptions::determineType
+determined type RFC_CLIENT
+2025-11-17 14:29:40.107293 [140149576157568] 	<< RfcOptions::determineType returned 0
+
+2025-11-17 14:29:40.107302 [140149576157568] 	>> RfcConnection::openNew
+2025-11-17 14:29:40.107359 [140149576157568] 	>> RfcConnection::connect
+2025-11-17 14:29:40.107386 [140149576157568] 	>> CpicConnection::connectAsClient
+2025-11-17 14:30:40.151927 [140149576157568] 	<< CpicConnection::connectAsClient returned 1
+
+2025-11-17 14:30:40.152130 [140149576157568] 	<< RfcConnection::connect returned 1
+
+2025-11-17 14:30:40.152295 [140149576157568] >> Exception occurred
+	[Handle: 94040826904176	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '172.23.50.45:3300' not reached
+TIME        Mon Nov 17 14:30:40 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      /bas/753_REL/src/base/ni/nibuf.cpp
+LINE        4580
+DETAIL      NiBufIConnect: connection pending after 60000ms
+SYSTEM CALL connect
+ERRNO       115
+ERRNO TEXT  Operation now in progress
+COUNTER     6
+
+2025-11-17 14:30:40.152332 [140149576157568] 	<< RfcConnection::openNew returned 1
+
+2025-11-17 14:30:40.152379 [140149576157568] 	>> RfcConnection::disconnect
+2025-11-17 14:30:40.152414 [140149576157568] 	>> CpicConnection::close
+2025-11-17 14:30:40.152445 [140149576157568] 	<< CpicConnection::close returned 0
+
+2025-11-17 14:30:40.152502 [140149576157568] 	<< RfcConnection::disconnect returned 0
+
+2025-11-17 14:30:40.152669 [140149576157568] << RfcOpenConnection returned RFC_COMMUNICATION_FAILURE
+	RFC_ERROR_INFO.key: RFC_COMMUNICATION_FAILURE
+	RFC_ERROR_INFO.message: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '172.23.50.45:3300' not reached
+TIME        Mon Nov 17 14:30:40 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      /bas/753_REL/src/base/ni/nibuf.cpp
+LINE        4580
+DETAIL      NiBufIConnect: connection pending after 60000ms
+SYSTEM CALL connect
+ERRNO       115
+ERRNO TEXT  Operation now in progress
+COUNTER     6
+
+

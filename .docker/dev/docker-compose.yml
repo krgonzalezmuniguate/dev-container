@@ -6,7 +6,7 @@ services:
       dockerfile: .docker/images/${DOCKERFILE_APACHE}
     container_name: ${DOCKER_CONTAINER_APACHE}
     volumes:
-      - ./../../:/usr/local/apache2/htdocs # archivos de aplicación
+      - ./../../:/var/www/html # archivos de aplicación
       - ./../../logs/httpd:/var/log/apache2 # logs de aplicación
     networks:
       docker-network:
